@@ -12,7 +12,8 @@ router.get('/', async function(req, res, next) {
     const { url } = req.query
     let output = {
         images:[],
-        name: ''
+        name: '',
+        desc: []
     }
     output.link=url
     await superagent.get(url).then(data=>{
@@ -30,6 +31,14 @@ router.get('/', async function(req, res, next) {
             output.images.push(src)
           } else {
             output.images.push($(this).attr('src').trim())
+          }
+        })
+        $("div[id='feature-bullets']")
+        .find('li > span')
+        .each(function (i, element) {
+          let text = $(this).text().trim()
+          if (text) {
+            output.desc.push(text)
           }
         })
 
