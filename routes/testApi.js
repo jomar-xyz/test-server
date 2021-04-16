@@ -33,8 +33,8 @@ router.get('/', async function(req, res, next) {
             output.images.push($(this).attr('src').trim())
           }
         })
-        $("div[id='feature-bullets']")
-        .find('li > span')
+        $("div[id='productDescription']")
+        .find('p')
         .each(function (i, element) {
           let text = $(this).text().trim()
           if (text) {
