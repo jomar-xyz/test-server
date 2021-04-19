@@ -43,7 +43,10 @@ router.get('/', async function(req, res, next) {
         })
 
 
-    }).catch(console.error);
+    }).catch(err=>{
+      console.error(err)
+      res.status(500).json(err.ressponse.data)
+    });
     res.json(output);
 });
 
