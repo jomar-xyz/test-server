@@ -13,7 +13,8 @@ router.get('/', async function(req, res, next) {
     let output = {
         images:[],
         name: '',
-        desc: []
+        desc: [],
+        brand: ''
     }
     output.link=url
     await superagent.get(url).then(data=>{
@@ -41,6 +42,13 @@ router.get('/', async function(req, res, next) {
             output.desc.push(text)
           }
         })
+        var brand = $('td').filter(function() {
+          return $(this).text().trim() === 'Brand';
+        }).next().text().trim();
+        if(brand){
+          output.brand=brand
+        }
+        console.log("brand===>",brand)
 
 
     }).catch(err=>{
