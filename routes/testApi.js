@@ -53,7 +53,7 @@ router.get('/', async function(req, res, next) {
           console.log("brand===>",brand)
 
         }else{
-            let name = $("meta[property='og:title']").attr('content') || $("meta[name='og:title']").attr('content')
+            let name = $("meta[name='og:title']").attr('content') || $("meta[property='og:title']").attr('content')
             if(name){
               output.name = name
             }
