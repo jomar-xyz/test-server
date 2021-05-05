@@ -79,7 +79,7 @@ router.get('/', async function(req, res, next) {
 
     }).catch(err=>{
       console.error(err)
-      res.status(500).json(err.ressponse.data)
+      res.status(500).json(err.response.data)
     });
     res.json(output);
 });
