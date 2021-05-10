@@ -21,6 +21,7 @@ router.get('/', async function(req, res, next) {
         // output.html=data.text
         // output.html = data.text
         let $ = cheerio.load(data.text)
+        console.log($("title").text())
         if(url.includes('www.amazon.com')){
           $("span[id='productTitle']").each(function (i, element) {
               let name = $(this).prepend().text().trim()
