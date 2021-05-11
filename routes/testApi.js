@@ -17,6 +17,7 @@ router.get('/', async function(req, res, next) {
         brand: ''
     }
     output.link=url
+    try{
     await superagent.get(url).set('User-Agent','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36').then(data=>{
         // output.html=data.text
         // output.html = data.text
@@ -82,6 +83,11 @@ router.get('/', async function(req, res, next) {
       res.status(500).json(err.response.data)
     });
     res.json(output);
+        
+    }catch(e){
+        res.json(output);
+    }    
+    
 });
 
 module.exports = router;
