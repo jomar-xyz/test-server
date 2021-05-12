@@ -76,18 +76,17 @@ router.get('/', async function(req, res, next) {
             
           
           console.log("done")
+          res.json(output);
         }
 
 
     }).catch(err=>{
       console.error(err)
-      new Error('Failed')
-//       res.status(500).json(err.response.data)
+      throw new Error('Scrape failed!')
     });
-    res.json(output);
         
     }catch(e){
-        res.json(output);
+        res.status(500).json({error: e.message}).end();
     }    
     
 });
