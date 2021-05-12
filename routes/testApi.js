@@ -78,6 +78,7 @@ router.get('/', async function(req, res, next) {
           console.log("done")
           res.json(output);
         }
+        res.json(output);
 
 
     }).catch(err=>{
